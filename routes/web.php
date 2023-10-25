@@ -18,5 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/hello', [IndexController::class, 'show'])->name('home');
 
-// Route::resource('listing', ListingController::class);
-Route::get('/listing', [ListingController::class, 'index'])->name('listing.index');
+Route::resource('listing', ListingController::class);
