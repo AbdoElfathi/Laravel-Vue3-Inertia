@@ -13,12 +13,10 @@ class ListingController extends Controller
      */
     public function index()
     {
-        return inertia(
-            'Listing/Index',
+        return Inertia::render('Listing/Index',
             [
                 'listings' => Listing::all(),
-            ]
-        );
+            ]);
     }
 
     /**
