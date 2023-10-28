@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Client\Request as ClientRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserAccountController extends Controller
 {
@@ -11,8 +12,17 @@ class UserAccountController extends Controller
         return inertia('UserAccount/Create');
     }
 
-    public function store(ClientRequest $request)
+    public function store(Request $request)
     {
+        $user = User::create($request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
+        ]));
+
+        auth()->login($user);
+
+        return redirect()->route('listing.index')->with('success', 'Account created successfully!');
 
     }
 }

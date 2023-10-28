@@ -13,6 +13,12 @@
       </div>
       <div class="mt-4">
         <button class="btn-primary w-full" type="submit">Login</button>
+        <div class="m-2 text-center">
+          <span class="text-sm text-gray-500">Need an account?</span>
+          <Link :href="route('user-account.create')" class="text-sm  text-blue-500">
+          Register.
+          </Link>
+        </div>
       </div>
     </div>
   </form>

@@ -12,6 +12,11 @@
       <ListingAddress :listing="listing" class="text-gray-500" />
       </Link>
     </div>
+    <div class="flex items-center gap-5">
+      <Link :href="route('listing.edit', listing.id)" method="GET">Edit</Link>
+      <Link :href="route('listing.destroy', listing.id)" method="DELETE">Delete</Link>
+    </div>
+
   </Box>
 </template>
 

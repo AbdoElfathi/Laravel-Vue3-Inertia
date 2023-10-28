@@ -32,6 +32,12 @@
         <button class="btn-primary w-full" type="submit">
           Create Account
         </button>
+        <div class="m-2 text-center">
+          <span class="text-sm text-gray-500">Already have an account?</span>
+          <Link :href="route('login')" class="text-sm  text-blue-500">
+          Sign in.
+          </Link>
+        </div>
       </div>
     </div>
   </form>
