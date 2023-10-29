@@ -7,6 +7,13 @@ use App\Models\User;
 
 class ListingPolicy
 {
+    public function before(?User $user, $ability)
+    {
+        if ($user->is_admin) {
+            return true;
+        }
+    }
+
     /**
      * Determine whether the user can view any models.
      */
