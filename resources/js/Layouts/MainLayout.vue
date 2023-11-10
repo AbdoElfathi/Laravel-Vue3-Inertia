@@ -40,6 +40,7 @@ const page = usePage()
 const flashSuccess = computed(
   () => page.props.flash.success,
 )
+
 const user = computed(
   () => page.props.user,
 )
