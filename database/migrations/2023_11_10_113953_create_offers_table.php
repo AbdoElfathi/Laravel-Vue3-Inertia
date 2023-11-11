@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('bidder_id')->constrained(('users'));
 
             $table->unsignedInteger('amount');
-            $table->timestamp('accpted_at')->nullable();
+            $table->timestamp('accepted_at')->nullable();
             $table->timestamp('rejected_at')->nullable();
 
             $table->timestamps();
