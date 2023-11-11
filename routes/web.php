@@ -47,7 +47,7 @@ Route::prefix('realtor')
     ->group(function () {
         Route::put('listing/{listing}/restore', [RealtorListingController::class, 'restore'])->name('listing.restore')->withTrashed();
         Route::resource('listing', RealtorListingController::class)
-            ->only(['index', 'create', 'store', 'edit', 'update', 'destroy'])
+            ->only(['index', 'show', 'create', 'store', 'edit', 'update', 'destroy'])
             ->withTrashed();
 
         Route::resource('listing.image', RealtorListingImageController::class)
