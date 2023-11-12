@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use App\Notifications\OfferMade;
 use Illuminate\Http\Request;
 
 class ListingOfferController extends Controller
@@ -11,11 +12,14 @@ class ListingOfferController extends Controller
     {
         $this->authorize('view', $listing);
 
-        $listing->offers()->make(
+        $offer = $listing->offers()->make(
             $request->validate([
                 'amount' => 'required|integer|min:1|max:20000000',
             ])
-        )->bidder()->associate(auth()->user())->save();
+        );
+        $offer->bidder()->associate(auth()->user())->save();
+
+        $listing->owner->notify(new OfferMade($offer));
 
         return back()->with('success', 'Offer sent successfully');
     }

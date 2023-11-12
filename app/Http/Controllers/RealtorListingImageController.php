@@ -40,7 +40,7 @@ class RealtorListingImageController extends Controller
         }
     }
 
-    public function destroy(ListingImage $image)
+    public function destroy($listing, ListingImage $image)
     {
         Storage::disk('public')->delete($image->filename);
         $image->delete();
